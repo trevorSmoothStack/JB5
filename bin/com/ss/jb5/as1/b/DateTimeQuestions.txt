@@ -1,0 +1,18 @@
+Date-Time API Questions:
+
+1. Which class would you use to store your birthday in years, months, days, seconds, and nanoseconds?
+LocalDateTime
+
+2. Given a random date, how would you find the date of the previous Thursday?
+
+You can use a TemporalAdjuster. For instance, TemporalAdjuster.previous(DayofWeek.THURSDAY) 
+
+3. What is the difference between a ZoneId and a ZoneOffset?
+
+So ZoneOffset give you an absolute offset from UTC time +0:00. ZoneId will also use ZoneRules, and will tell you how an
+offset varies for a particular time of year and region.
+
+4. How would you convert an Instant to a ZonedDateTime? How would you convert a ZonedDateTime to an Instant?
+
+a) You can use ZonedDateTime.ofInstant(). You will also need to supply a ZoneId.
+b) You can use the Instant.atZone() OR you can use toInstant() method implemented by the ZonedDateTime class.
